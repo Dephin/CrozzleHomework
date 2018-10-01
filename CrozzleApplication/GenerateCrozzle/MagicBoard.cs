@@ -9,7 +9,7 @@ namespace CrozzleApplication.GenerateCrozzle
     /// </summary>
     public class MagicBoard : Board
     {
-        private Config Config = new Config();
+        private ConfigRef Config;
 
         #region Magic Properties
 
@@ -26,7 +26,7 @@ namespace CrozzleApplication.GenerateCrozzle
 
         #region Constructors 
 
-        public MagicBoard(int rows, int cols) : base(rows, cols) 
+        public MagicBoard(int rows, int cols) : base(rows, cols)
         {
             _BoardGrid = new Element[rows * 3 + 1, cols * 3 + 1];
             minRow = rows;
@@ -90,7 +90,7 @@ namespace CrozzleApplication.GenerateCrozzle
                             WordCombo = new List<ActiveWord>();
                             int RowStart_H = rowIndex;
                             int ColStart_H = colIndex - letterIndex.Index;
-                            WordCombo.Add(word.MakeActiveWord(RowStart_H, ColStart_H, Config.HorizontalKeyWord));
+                            WordCombo.Add(word.MakeActiveWord(RowStart_H, ColStart_H, ConfigRef.HorizontalKeyWord));
 
                             // add vertical
                             if (TryAddWord(ref WordCombo))
@@ -113,7 +113,7 @@ namespace CrozzleApplication.GenerateCrozzle
                                                 List<ActiveWord> WordCombo2 = new List<ActiveWord>();
                                                 int RowStart2_V = rowIndex2 - letter2Index.Index;
                                                 int ColStart2_V = colIndex2;
-                                                WordCombo2.Add(word2.MakeActiveWord(RowStart2_V, ColStart2_V, Config.VerticalKeyWord));
+                                                WordCombo2.Add(word2.MakeActiveWord(RowStart2_V, ColStart2_V, ConfigRef.VerticalKeyWord));
                                                 
                                                 if (TryAddWord(ref WordCombo2))
                                                 {
@@ -142,7 +142,7 @@ namespace CrozzleApplication.GenerateCrozzle
                             WordCombo = new List<ActiveWord>();
                             int RowStart_V = rowIndex - letterIndex.Index;
                             int ColStart_V = colIndex;
-                            WordCombo.Add(word.MakeActiveWord(RowStart_V, ColStart_V, Config.VerticalKeyWord));
+                            WordCombo.Add(word.MakeActiveWord(RowStart_V, ColStart_V,  ConfigRef.VerticalKeyWord));
                             if (TryAddWord(ref WordCombo))
                             {
                                 if (element == null)
@@ -163,7 +163,7 @@ namespace CrozzleApplication.GenerateCrozzle
                                                 List<ActiveWord> WordCombo2 = new List<ActiveWord>();
                                                 int RowStart2_H = rowIndex2;
                                                 int ColStart2_H = colIndex2 - letter2Index.Index;
-                                                WordCombo2.Add(word2.MakeActiveWord(RowStart2_H, ColStart2_H, Config.HorizontalKeyWord));
+                                                WordCombo2.Add(word2.MakeActiveWord(RowStart2_H, ColStart2_H, ConfigRef.HorizontalKeyWord));
 
                                                 if (TryAddWord(ref WordCombo2))
                                                 {
@@ -200,7 +200,7 @@ namespace CrozzleApplication.GenerateCrozzle
             if (TotalElements == 0)
             {
                 SortedWordlist = SortByScore(SortedWordlist);
-                BestWords.Add(SortedWordlist[0].MakeActiveWord(_Rows+2,_Cols+2, Config.VerticalKeyWord));
+                BestWords.Add(SortedWordlist[0].MakeActiveWord(_Rows+2,_Cols+2, ConfigRef.VerticalKeyWord));
             }
             else
             {
@@ -265,7 +265,7 @@ namespace CrozzleApplication.GenerateCrozzle
                         }
 
 
-                        if (element.Letter != word[letterIndex] || (element.HorizontalWord != null && word.Orientation == Config.HorizontalKeyWord) || (element.VerticalWord != null && word.Orientation == Config.VerticalKeyWord))
+                        if (element.Letter != word[letterIndex] || (element.HorizontalWord != null && word.Orientation == ConfigRef.HorizontalKeyWord) || (element.VerticalWord != null && word.Orientation == ConfigRef.VerticalKeyWord))
                         {
                             result = false;
                             break;
@@ -275,7 +275,7 @@ namespace CrozzleApplication.GenerateCrozzle
                     word.ActiveScore -= Config.PointsForNonIntersecting(word[letterIndex]); // Subtract non-intersecting letter points
                     word.ActiveScore += Config.PointsForIntersecting(word[letterIndex]); // Add intersecting letter points
 
-                    if (word.Orientation == Config.HorizontalKeyWord)
+                    if (word.Orientation == ConfigRef.HorizontalKeyWord)
                         colIndex++;
                     else
                         rowIndex++;
@@ -286,17 +286,17 @@ namespace CrozzleApplication.GenerateCrozzle
                     rowIndex = word.RowStart;
                     colIndex = word.ColStart;
 
-                    if (word.Orientation == Config.HorizontalKeyWord)
+                    if (word.Orientation == ConfigRef.HorizontalKeyWord)
                         if (_BoardGrid[rowIndex, colIndex - 1] != null || _BoardGrid[rowIndex, word.ColEnd + 1] != null)
                             result = false;
 
-                    if (word.Orientation == Config.VerticalKeyWord)
+                    if (word.Orientation == ConfigRef.VerticalKeyWord)
                         if (_BoardGrid[rowIndex - 1, colIndex] != null || _BoardGrid[word.RowEnd + 1, colIndex] != null)
                             result = false;
 
                     for (int letterIndex = 0; letterIndex < word.Length; letterIndex++)
                     {
-                        if (word.Orientation == Config.HorizontalKeyWord)
+                        if (word.Orientation == ConfigRef.HorizontalKeyWord)
                         {
                             Element element = _BoardGrid[rowIndex, colIndex + letterIndex];
                             Element elementAbove = _BoardGrid[rowIndex - 1, colIndex + letterIndex];
@@ -356,7 +356,7 @@ namespace CrozzleApplication.GenerateCrozzle
                 if (_BoardGrid[rowIndex, colIndex] != null)
                     if (_BoardGrid[rowIndex, colIndex].HorizontalWord != null && _BoardGrid[rowIndex, colIndex].VerticalWord != null)
                         count++;
-                if (word.Orientation == Config.HorizontalKeyWord)
+                if (word.Orientation == ConfigRef.HorizontalKeyWord)
                     colIndex++;
                 else
                     rowIndex++;

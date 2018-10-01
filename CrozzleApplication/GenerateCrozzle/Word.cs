@@ -4,7 +4,7 @@ namespace CrozzleApplication.GenerateCrozzle
 {
     public class Word
     {
-        protected Config Config = new Config();
+        public static ConfigRef Config;
 
         #region Properties
         protected string _String;

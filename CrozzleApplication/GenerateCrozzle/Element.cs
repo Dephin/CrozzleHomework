@@ -9,7 +9,7 @@ namespace CrozzleApplication
 {
     public class Element
     {
-        Config Config = new Config();
+        ConfigRef _configRef = new ConfigRef();
 
         #region Properties
 
@@ -83,7 +83,7 @@ namespace CrozzleApplication
         public Element(char letter, ActiveWord word, int word_letterIndex, int group)
         {
             _Letter = letter;
-            if(word.Orientation == Config.HorizontalKeyWord)
+            if(word.Orientation == ConfigRef.HorizontalKeyWord)
             {
                 _HorizontalWord = word;
                 _HorizontalWordLetterIndex = word_letterIndex;
@@ -133,13 +133,13 @@ namespace CrozzleApplication
             // If it's an intersecting element
             if(_HorizontalWord != null && _VerticalWord != null)
             {
-                score = Config.PointsForIntersecting(_Letter);
+                score = _configRef.PointsForIntersecting(_Letter);
             }
 
             // Else if it's a non-intersectin element
             else if (_HorizontalWord != null || _VerticalWord != null)
             {
-                score = Config.PointsForNonIntersecting(_Letter);
+                score = _configRef.PointsForNonIntersecting(_Letter);
             }
 
             // Return the score.

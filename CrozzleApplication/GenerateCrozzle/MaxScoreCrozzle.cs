@@ -6,7 +6,7 @@ namespace CrozzleApplication.GenerateCrozzle
 {
     public class MaxScoreCrozzle
     {
-        Configuration Config;
+        private ConfigRef Config = new ConfigRef();
 
         #region Constants
         private const int MaxBuildRunTime = 400000;
@@ -77,103 +77,42 @@ namespace CrozzleApplication.GenerateCrozzle
 
         public MaxScoreCrozzle(Configuration configuration, WordList wordList)
         {
-            Config = configuration;
-            Board board = new Board(Config.MaximumNumberOfRows, Config.MaximumNumberOfColumns);
-            _Grid = board;
+            ConstructConfig(configuration);
+            Word.Config = Config;
 
             _WordList = new List<Word>();
-            foreach (String wordStr in wordList.List)
-                _WordList.Add(new Word(wordStr));
+            foreach (String word in wordList.List)
+                _WordList.Add(new Word(word));
+            _ActiveWordList = new List<ActiveWord>();
+
+            Board board = new Board(configuration.MaximumNumberOfRows, configuration.MaximumNumberOfColumns);
+            board.AddWordList(_ActiveWordList);
+
+
+            _Grid = board;
+            _Grid = new Board(Config.MinNumberOfRows, Config.MinNumberOfRows);
+            _WordList = new List<Word>();
+            _ActiveWordList = new List<ActiveWord>();
+            _WordList = new List<Word>();
+            _ActiveWordList = new List<ActiveWord>();
+        }
+
+        public void ConstructConfig(Configuration configuration)
+        {
+            Config.MinNumberOfRows = configuration.MinimumNumberOfRows;
+            Config.MaxNumberOfRows = configuration.MaximumNumberOfRows;
+            Config.MinNumberOfCols = configuration.MinimumNumberOfColumns;
+            Config.MaxNumberOfCols = configuration.MaximumNumberOfColumns;
+            Config.PointsPerWord = configuration.PointsPerWord;
+            Config.NonIntersectingLetterPoints = configuration.NonIntersectingPointsPerLetter;
+            Config.IntersectingLetterPoints = configuration.IntersectingPointsPerLetter;
+            Config.GroupsPerCrozzleLimit = configuration.MaximumNumberOfGroups;
         }
 
         public Element this[int row, int col]
         {
             get { return _Grid[row, col]; }
             set { _Grid[row, col] = value; }
-        }
-        #endregion
-
-        #region Validation
-        public bool Validate()
-        {
-            bool result = true;
-
-            _ValidationErrorList = new List<string>();
-            _ValidationResult = true;
-
-            if (Validate_NoDuplicates() != true)
-                result = false;
-
-//            if (Validate_MaxGroups() != true)
-//                result = false;
-
-            if (Validate_Intersections() != true)
-                result = false;
-
-            _ValidationResult = result;
-            return result;
-        }
-
-        private bool Validate_NoDuplicates()
-        {
-            bool result = true;
-            foreach (Word word in _WordList)
-            {
-                int wordCount = 0;
-                foreach (ActiveWord listword in _ActiveWordList)
-                {
-                    if (word.String == listword.String)
-                        wordCount++;
-                }
-
-                if (wordCount > 1)
-                {
-                    _ValidationErrorList.Add("The word " + word + " was used more than once.");
-                    result = false;
-                }
-            }
-
-            return result;
-        }
-
-//        private bool Validate_MaxGroups()
-//        {
-//            bool result = true;
-//            if (_Grid.GroupCount > Config.GroupCount)
-//            {
-//                _ValidationErrorList.Add("The number of word groups (" + _Grid.GroupCount +
-//                                         ") exceeds the groups per Crozzle limit of " + Config.GroupsPerCrozzleLimit +
-//                                         ".");
-//                result = false;
-//            }
-//
-//            return result;
-//        }
-        private bool Validate_Intersections()
-        {
-            bool result = true;
-            foreach (ActiveWord word in _Grid.ActiveWordList)
-            {
-                int horizontalIntersectionCount = 0;
-                for (int letterIndex = 0; letterIndex < word.Length; letterIndex++)
-                {
-                    if (_Grid.ElementIn(word, letterIndex).HorizontalWord != null)
-                        horizontalIntersectionCount++;
-                }
-                if (horizontalIntersectionCount < Config.MinimumHorizontalWords || horizontalIntersectionCount > Config.MaximumHorizontalWords)
-                    return false;
-
-                int verticaleIntersectionCount = 0;
-                for (int letterIndex = 0; letterIndex < word.Length; letterIndex++)
-                {
-                    if (_Grid.ElementIn(word, letterIndex).VerticalWord != null)
-                        verticaleIntersectionCount++;
-                }
-                if (verticaleIntersectionCount < Config.MinimumVerticalWords || verticaleIntersectionCount > Config.MaximumVerticalWords)
-                    return false;
-            }
-
-            return result;
         }
         #endregion
 

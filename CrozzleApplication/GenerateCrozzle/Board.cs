@@ -8,7 +8,7 @@ namespace CrozzleApplication.GenerateCrozzle
     /// </summary>
     public class Board
     {
-        Config Config = new Config();
+        ConfigRef _configRef = new ConfigRef();
 
         #region Properties
 
@@ -72,7 +72,7 @@ namespace CrozzleApplication.GenerateCrozzle
                         throw new Exception("Cannot add word " + word + " as the letter " + word[letterIndex] + " cannot be placed onto the letter " + _BoardGrid[row_index, col_index].Letter + " at [" + row_index + "," + col_index + "]");
                     }
                     
-                    if ((word.Orientation == Config.HorizontalKeyWord && _BoardGrid[row_index, col_index].HorizontalWord != null) || (word.Orientation == Config.VerticalKeyWord && _BoardGrid[row_index, col_index].VerticalWord != null))
+                    if ((word.Orientation == ConfigRef.HorizontalKeyWord && _BoardGrid[row_index, col_index].HorizontalWord != null) || (word.Orientation == ConfigRef.VerticalKeyWord && _BoardGrid[row_index, col_index].VerticalWord != null))
                     {
                         throw new Exception("Cannot add word " + word + " as it is overlapping another " + word.Orientation + " word.");
                     }
@@ -80,12 +80,12 @@ namespace CrozzleApplication.GenerateCrozzle
                     if (_BoardGrid[row_index, col_index].Group != group)
                         group = CombineGroups(_BoardGrid[row_index, col_index].Group, group);
 
-                    if(word.Orientation == Config.HorizontalKeyWord)
+                    if(word.Orientation == ConfigRef.HorizontalKeyWord)
                         _BoardGrid[row_index, col_index] = new Element(word[letterIndex], word, letterIndex, _BoardGrid[row_index, col_index].VerticalWord, _BoardGrid[row_index, col_index].VerticalWordLetterIndex, group);
                     else
                         _BoardGrid[row_index, col_index] = new Element(word[letterIndex], _BoardGrid[row_index, col_index].HorizontalWord, _BoardGrid[row_index, col_index].HorizontalWordLetterIndex, word, letterIndex, group);
                 }
-                if (word.Orientation == Config.HorizontalKeyWord)
+                if (word.Orientation == ConfigRef.HorizontalKeyWord)
                     col_index++;
                 else
                     row_index++;
@@ -116,7 +116,7 @@ namespace CrozzleApplication.GenerateCrozzle
         {
             int row = word.RowStart;
             int col = word.ColStart;
-            if (word.Orientation == Config.HorizontalKeyWord)
+            if (word.Orientation == ConfigRef.HorizontalKeyWord)
                 col += index;
             else
                 row += index;
