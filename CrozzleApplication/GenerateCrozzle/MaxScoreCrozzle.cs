@@ -79,7 +79,6 @@ namespace CrozzleApplication.GenerateCrozzle
         {
             ConstructConfig(configuration);
             Word.Config = Config;
-            ActiveWord.Config = Config;
             Board.Config = Config;
             MagicBoard.Config = Config;
 

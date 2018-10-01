@@ -9,7 +9,7 @@ namespace CrozzleApplication.GenerateCrozzle
     /// </summary>
     public class MagicBoard : Board
     {
-        private ConfigRef Config;
+        public static ConfigRef Config;
 
         #region Magic Properties
 
