@@ -133,7 +133,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OrientationErrors.resx</DependentUpon>
     </Compile>
-    <Compile Include="Test_MaxScoreCrozzle.cs" />
     <Compile Include="Validator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
