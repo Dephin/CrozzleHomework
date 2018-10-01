@@ -79,6 +79,9 @@ namespace CrozzleApplication.GenerateCrozzle
         {
             ConstructConfig(configuration);
             Word.Config = Config;
+            ActiveWord.Config = Config;
+            Board.Config = Config;
+            MagicBoard.Config = Config;
 
             _WordList = new List<Word>();
             foreach (String word in wordList.List)

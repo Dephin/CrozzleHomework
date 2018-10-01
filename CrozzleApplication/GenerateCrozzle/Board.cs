@@ -8,7 +8,7 @@ namespace CrozzleApplication.GenerateCrozzle
     /// </summary>
     public class Board
     {
-        ConfigRef _configRef = new ConfigRef();
+        public static ConfigRef Config = new ConfigRef();
 
         #region Properties
 
