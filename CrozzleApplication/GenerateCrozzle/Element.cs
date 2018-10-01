@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CrozzleApplication.GenerateCrozzle;
-
-namespace CrozzleApplication
+﻿namespace CrozzleApplication.GenerateCrozzle
 {
     public class Element
     {
-         public static ConfigRef Config = new ConfigRef();
+        ConfigRef Config = new ConfigRef();
 
         #region Properties
 

@@ -71,3 +71,29 @@ F:/Workspace/Local/C#/Old Program and Old Files/Old Program/CrozzleApplication/o
 /Users/dephin/Workspace/Local/C#/Old Program/CrozzleApplication/bin/Debug/CrozzleApplication.pdb
 /Users/dephin/Workspace/Local/C#/Old Program/CrozzleApplication/bin/Debug/ClassLibrary1.dll
 /Users/dephin/Workspace/Local/C#/Old Program/CrozzleApplication/obj/Debug/CrozzleFormApplication.csproj.CopyComplete
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleFormApplication.csprojAssemblyReference.cache
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.AboutBox.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.ConfigurationFileItemErrors.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.ConfigurationKeys.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.CoordinateErrors.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.CrozzleErrors.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.CrozzleFileErrors.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.CrozzleFileItemErrors.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.CrozzleViewerForm.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.ErrorsViewer.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.KeyValueErrors.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.OrientationErrors.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.Properties.Resources.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.ConfigurationErrors.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.ValidatorErrors.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.WordDataErrors.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.WordListErrors.resources
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleFormApplication.csproj.GenerateResource.cache
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleFormApplication.csproj.CoreCompileInputs.cache
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.exe
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleApplication.pdb
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/bin/Debug/CrozzleApplication.exe.config
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/bin/Debug/CrozzleApplication.exe
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/bin/Debug/CrozzleApplication.pdb
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/bin/Debug/ClassLibrary1.dll
+/Users/dephin/Workspace/GitHub/CrozzleHomework/CrozzleApplication/obj/Debug/CrozzleFormApplication.csproj.CopyComplete

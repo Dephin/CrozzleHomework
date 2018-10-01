@@ -3,7 +3,6 @@
     public class ActiveWord : Word
     {
         #region Properties
-
         private string _Orientation;
         public string Orientation { get { return _Orientation; } set { _Orientation = value; } }
 
@@ -18,17 +17,15 @@
 
         private int _ActiveScore;
         public int ActiveScore { get { return _ActiveScore; } set { _ActiveScore = value; } }
-
         #endregion
 
         #region Constructors
-
-        public ActiveWord(string word) : base(word)
-        {
-            _RowStart = 0;
-            _ColStart = 0;
-            _BaseScore = CalculateBaseScore();
-        }
+        //public ActiveWord(string word) : base(word)
+        //{
+        //    _RowStart = 0;
+        //    _ColStart = 0;
+        //    _BaseScore = CalculateBaseScore();
+        //}
 
         public ActiveWord(string word, string orientation, int rowStart, int colStart) : base(word)
         {

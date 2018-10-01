@@ -4,17 +4,14 @@ namespace CrozzleApplication.GenerateCrozzle
 {
     public class Word
     {
-        public static ConfigRef Config;
+        protected ConfigRef Config = new ConfigRef();
 
         #region Properties
         protected string _String;
         public string String { get { return _String; } set { _String = value; } }
-
         protected int _BaseScore;
         public int BaseScore { get { return _BaseScore; } }
-
         public int Length { get { return _String.Length; } }
-
         #endregion
 
         #region Constructors
@@ -30,7 +27,7 @@ namespace CrozzleApplication.GenerateCrozzle
         }
         #endregion
 
-        #region Methods - ToString(), CalculateBaseScore()
+        #region Methods - ToString(), CalculateBaseScore(). MakeActiveWord()
         public override string ToString()
         {
             return _String;

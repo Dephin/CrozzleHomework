@@ -227,7 +227,7 @@ namespace CrozzleApplication
 
             if (wordData.Count == 0)
             {
-//                wordData = CreateCrozzelByGreedyAlgorithm(aConfiguration, wordList);
+                wordData = CreateCrozzelByGreedyAlgorithm(aConfiguration, wordList);
             }
 
 
@@ -373,41 +373,64 @@ namespace CrozzleApplication
         #endregion
 
         #region greedy algorithm
-        private static void CreateCrozzelByGreedyAlgorithm(Configuration aConfiguration, WordList wordList)
+        private static List<String> CreateCrozzelByGreedyAlgorithm(Configuration aConfiguration, WordList WordStrList)
         {
-            MaxScoreCrozzle maxScoreCrozzle = new MaxScoreCrozzle(aConfiguration, wordList);
-            maxScoreCrozzle.GenerateOptimal();
-            List<ActiveWord> activeWords = maxScoreCrozzle.ActiveWordList;
-        }
+            ConfigRef Config = new ConfigRef();
+            Config.NonIntersectingLetterPoints = aConfiguration.NonIntersectingPointsPerLetter;
+            Config.IntersectingLetterPoints = aConfiguration.IntersectingPointsPerLetter;
 
-        public static void addWordData(String maxScoreWord, int rowsN, int columnsN, ref bool rowsPrior, ref int numRow, ref int numColumn, ref List<String> wordData)
-        {
-            String addData;
-            if (!rowsPrior)
+
+            List<Word> Wordlist = new List<Word>();
+            foreach (String wordStr in WordStrList.List)
+                Wordlist.Add(new Word(wordStr));
+
+            List<Word> Words = new List<Word>();
+            foreach (Word word in Wordlist)
+                Words.Add(new Word(word.String));
+
+            MagicBoard Grid = new MagicBoard(aConfiguration.MaximumNumberOfRows, aConfiguration.MaximumNumberOfColumns);
+
+            List<ActiveWord> BestWords;
+            while ((BestWords = Grid.GetBestWord(Words)).Count > 0)
             {
-                addData = "ROW=" + numRow + "," + maxScoreWord + "," + numColumn;
-                if (numRow > columnsN)
+                foreach (ActiveWord BestWord in BestWords)
                 {
-                    rowsPrior = !rowsPrior;
-                    numRow = 1;
+                    Grid.AddMagicWord(BestWord);
+
+                    for (int index = 0; index < Words.Count; index++)
+                        if (Words[index].String == BestWord.String)
+                            Words.RemoveAt(index);
                 }
-                else
-                    numRow += maxScoreWord.Length + 1;
+            }
+
+            Board Grid2 = Grid.LoseTheMagic();
+            List<ActiveWord> ActiveWordList = Grid2.ActiveWordList;
+
+            List<String> retList = new List<String>();
+
+            foreach (ActiveWord activeWord in ActiveWordList)
+            {
+                if (activeWord.Orientation.Equals(Config.VerticalKeyWord))
+                {
+                    String wordData = "ROW=" + activeWord.RowStart + "," + activeWord.String + "," + activeWord.ColStart;
+                    retList.Add(wordData);
+                }
 
             }
-            else
+
+            foreach (ActiveWord activeWord in ActiveWordList)
             {
-                addData = "COLUMN=" + numColumn + "," + maxScoreWord + "," + numRow;
-                if (numColumn > rowsN)
+                if (activeWord.Orientation.Equals(Config.HorizontalKeyWord))
                 {
-                    rowsPrior = !rowsPrior;
-                    numColumn = 1;
+                    String wordData = "COLUMN=" + activeWord.RowStart + "," + activeWord.String + "," + activeWord.ColStart;
+                    retList.Add(wordData);
                 }
-                else
-                    numColumn += maxScoreWord.Length + 1;
             }
-            wordData.Add(addData);
+
+            return retList;
         }
+
+
 
         #endregion
 

@@ -9,30 +9,39 @@ namespace CrozzleApplication.GenerateCrozzle
     /// </summary>
     public class MagicBoard : Board
     {
-        public static ConfigRef Config;
+        private ConfigRef Config = new ConfigRef();
 
         #region Magic Properties
 
+        private int realRows { get { return _BoardGrid.GetLength(0); } }
+        private int height { get { return RowCount(); } }
         private int minRow;
         private int maxRow;
 
+        private int realCols { get { return _BoardGrid.GetLength(1); } }
+        private int width { get { return ColCount(); } }
         private int minCol;
         private int maxCol;
 
-
+        /// <summary>
+        /// The words that that are positioned on the crozzle grid.
+        /// </summary>
         public new List<ActiveWord> ActiveWordList { get { return BuildActiveWordList(); } }
 
         #endregion
 
         #region Constructors 
 
-        public MagicBoard(int rows, int cols) : base(rows, cols)
+        public MagicBoard(int rows, int cols) : base(rows, cols) 
         {
+            // Create a board with a margin around it equal to the board size.
+            // Essentually this is a board 3 times the size;
             _BoardGrid = new Element[rows * 3 + 1, cols * 3 + 1];
-            minRow = rows;
-            maxRow = rows;
-            minCol = cols;
-            maxCol = cols;
+            // Specifies the first element of the center board.
+            minRow = rows + 2;
+            maxRow = rows + 2;
+            minCol = cols + 2;
+            maxCol = cols + 2;
         }
 
         public new Element this[int row, int col]
@@ -45,6 +54,11 @@ namespace CrozzleApplication.GenerateCrozzle
 
         #region Best Word Methods: GetBestWord(), TryAddWord(), IsSameWord(), WordIntersectionCount()
 
+        /// <summary>
+        /// Gets the best word that will fit on a Crozzle board grid from a list of words.
+        /// </summary>
+        /// <param name="Words list"></param>
+        /// <returns></returns>
         public List<ActiveWord> GetBestWord(List<Word> wordlist)
         {           
             List<ActiveWord> BestWords = new List<ActiveWord>(); // The best Word Group          
@@ -56,7 +70,7 @@ namespace CrozzleApplication.GenerateCrozzle
             {
                 SortedWordlist.Add(new Word(word.String));
             }
-
+ 
             SortedWordlist = SortByScore(SortedWordlist);
 
             for (int rowIndex = minRow; rowIndex <= maxRow; rowIndex++)
@@ -72,7 +86,8 @@ namespace CrozzleApplication.GenerateCrozzle
                     if (element != null)
                     {
                         TotalElements++;
-
+                    
+        
                         if (element.HorizontalWord != null && element.VerticalWord != null)
                             continue;
                     }
@@ -92,7 +107,6 @@ namespace CrozzleApplication.GenerateCrozzle
                             int ColStart_H = colIndex - letterIndex.Index;
                             WordCombo.Add(word.MakeActiveWord(RowStart_H, ColStart_H, Config.HorizontalKeyWord));
 
-                            // add vertical
                             if (TryAddWord(ref WordCombo))
                             {
                                 if (element == null)
@@ -105,20 +119,24 @@ namespace CrozzleApplication.GenerateCrozzle
                                         Regex letter2 = new Regex(element2.ToString());
                                         foreach (Word word2 in SortedWordlist)
                                         {
+           
                                             if (word2.String == word.String)
                                                 continue;
 
                                             foreach (Match letter2Index in letter2.Matches(word2.String))
                                             {
+                              
                                                 List<ActiveWord> WordCombo2 = new List<ActiveWord>();
                                                 int RowStart2_V = rowIndex2 - letter2Index.Index;
                                                 int ColStart2_V = colIndex2;
                                                 WordCombo2.Add(word2.MakeActiveWord(RowStart2_V, ColStart2_V, Config.VerticalKeyWord));
                                                 
+                                      
                                                 if (TryAddWord(ref WordCombo2))
                                                 {
                                                     WordCombo.Add(WordCombo2[0]);
                                                     Possibilities.Add(WordCombo);
+                                                   
                                                     newGroup = true;
                                                     break;
                                                 }
@@ -138,26 +156,29 @@ namespace CrozzleApplication.GenerateCrozzle
                                 }
                             }
 
-                            //add vertically
                             WordCombo = new List<ActiveWord>();
                             int RowStart_V = rowIndex - letterIndex.Index;
                             int ColStart_V = colIndex;
-                            WordCombo.Add(word.MakeActiveWord(RowStart_V, ColStart_V,  Config.VerticalKeyWord));
+                            WordCombo.Add(word.MakeActiveWord(RowStart_V, ColStart_V, Config.VerticalKeyWord));
                             if (TryAddWord(ref WordCombo))
                             {
+                  
                                 if (element == null)
                                 {
                                     int rowIndex2 = rowIndex;
                                     int colIndex2 = colIndex;
 
+
                                     foreach (Char element2 in word.String)
                                     {
+                    
                                         Regex letter2 = new Regex(element2.ToString());
                                         foreach (Word word2 in SortedWordlist)
                                         {
+  
                                             if (word2.String == word.String)
                                                 continue;
-
+                                                
                                             foreach (Match letter2Index in letter2.Matches(word2.String))
                                             {
                                                 List<ActiveWord> WordCombo2 = new List<ActiveWord>();
@@ -165,6 +186,7 @@ namespace CrozzleApplication.GenerateCrozzle
                                                 int ColStart2_H = colIndex2 - letter2Index.Index;
                                                 WordCombo2.Add(word2.MakeActiveWord(RowStart2_H, ColStart2_H, Config.HorizontalKeyWord));
 
+                                   
                                                 if (TryAddWord(ref WordCombo2))
                                                 {
                                                     WordCombo.Add(WordCombo2[0]);
@@ -196,17 +218,17 @@ namespace CrozzleApplication.GenerateCrozzle
                     }
                 }
             }
-            
             if (TotalElements == 0)
             {
                 SortedWordlist = SortByScore(SortedWordlist);
-                if(SortedWordlist.Count > 0)
-                    BestWords.Add(SortedWordlist[0].MakeActiveWord(_Rows,_Cols, Config.VerticalKeyWord));
+                BestWords.Add(SortedWordlist[0].MakeActiveWord(_Rows+2,_Cols+2, Config.VerticalKeyWord));
             }
             else
             {
+
                 if (Possibilities.Count > 0)
                 {
+               
                     Possibilities = SortByScore(Possibilities);
 
                     BestWords = Possibilities[0];
@@ -220,7 +242,7 @@ namespace CrozzleApplication.GenerateCrozzle
         private bool TryAddWord(ref List<ActiveWord> testWord)
         {
 
-            bool result = true;
+          bool result = true;
 
             foreach (ActiveWord word in testWord)
             {
@@ -230,6 +252,7 @@ namespace CrozzleApplication.GenerateCrozzle
 
                 for (int letterIndex = 0; letterIndex < word.Length; letterIndex++)
                 {
+              
                     int newHeight = Math.Max(maxRow, rowIndex) - (Math.Min(minRow, rowIndex) - 1);
                     int newWidth = Math.Max(maxCol, colIndex) - (Math.Min(minCol, colIndex) - 1);
                     if (newHeight > _Rows || newWidth > _Cols)
@@ -241,30 +264,7 @@ namespace CrozzleApplication.GenerateCrozzle
                     Element element = _BoardGrid[rowIndex, colIndex];
                     if (element != null)
                     {
-                        if ((wordIntersections + 1) > Config.MaxIntersectingWords)
-                        {
-                            result = false;
-                            break;
-                        }
                         wordIntersections++;
-
-                        if (element.HorizontalWord != null)
-                        {
-                            if (WordIntersectionCount(element.HorizontalWord) >= Config.MaxIntersectingWords)
-                            {
-                                result = false;
-                                break;
-                            }
-                        }
-                        else if (element.VerticalWord != null)
-                        {
-                            if (WordIntersectionCount(element.VerticalWord) >= Config.MaxIntersectingWords)
-                            {
-                                result = false;
-                                break;
-                            }
-                        }
-
 
                         if (element.Letter != word[letterIndex] || (element.HorizontalWord != null && word.Orientation == Config.HorizontalKeyWord) || (element.VerticalWord != null && word.Orientation == Config.VerticalKeyWord))
                         {
@@ -294,7 +294,7 @@ namespace CrozzleApplication.GenerateCrozzle
                     if (word.Orientation == Config.VerticalKeyWord)
                         if (_BoardGrid[rowIndex - 1, colIndex] != null || _BoardGrid[word.RowEnd + 1, colIndex] != null)
                             result = false;
-
+                        
                     for (int letterIndex = 0; letterIndex < word.Length; letterIndex++)
                     {
                         if (word.Orientation == Config.HorizontalKeyWord)
@@ -324,7 +324,7 @@ namespace CrozzleApplication.GenerateCrozzle
                     }
                 }
             }  
-            
+
             return result;
         }
 
@@ -344,7 +344,6 @@ namespace CrozzleApplication.GenerateCrozzle
             }
             return result;
         }
-
 
         private int WordIntersectionCount(ActiveWord word)
         {
@@ -368,8 +367,6 @@ namespace CrozzleApplication.GenerateCrozzle
         #endregion
 
         #region Sorting Methods: SortByScore()
-
-
         private List<List<ActiveWord>> SortByScore(List<List<ActiveWord>> wordList)
         {
             List<List<ActiveWord>> tempList = new List<List<ActiveWord>>();
@@ -402,7 +399,6 @@ namespace CrozzleApplication.GenerateCrozzle
             return tempList;
         }
 
-
         private List<Word> SortByScore(List<Word> wordList)
         {
             List<Word> tempList = new List<Word>();
@@ -421,11 +417,9 @@ namespace CrozzleApplication.GenerateCrozzle
             }
             return tempList;
         }
-
         #endregion
 
         #region Methods: LoseTheMagic(), AddMagicWord() RowCount(), ColCount(), BuildActiveWordList()
-
         public Board LoseTheMagic()
         {
             Board board = new Board(_Rows, _Cols);
@@ -460,7 +454,6 @@ namespace CrozzleApplication.GenerateCrozzle
             }
             return newList;
         }
-
         #endregion
     }
 }

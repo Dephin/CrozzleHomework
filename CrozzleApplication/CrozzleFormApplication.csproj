@@ -64,7 +64,6 @@
     <Compile Include="GenerateCrozzle\ConfigRef.cs" />
     <Compile Include="GenerateCrozzle\Element.cs" />
     <Compile Include="GenerateCrozzle\MagicBoard.cs" />
-    <Compile Include="GenerateCrozzle\MaxScoreCrozzle.cs" />
     <Compile Include="GenerateCrozzle\Word.cs" />
     <Compile Include="Get.cs" />
     <Compile Include="Configuration.cs" />

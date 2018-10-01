@@ -13,13 +13,13 @@ namespace CrozzleApplication
         [STAThread]
         static void Main()
         {
-                        #region Library
-                        ClassLibrary1.Class1.log();
-                        #endregion
-            
-                        Application.EnableVisualStyles();
-                        Application.SetCompatibleTextRenderingDefault(false);
-                        Application.Run(new CrozzleViewerForm());
+            #region Library
+            ClassLibrary1.Class1.log();
+            #endregion
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new CrozzleViewerForm());
         }
     }
 }
