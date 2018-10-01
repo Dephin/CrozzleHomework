@@ -200,7 +200,7 @@ namespace CrozzleApplication.GenerateCrozzle
             if (TotalElements == 0)
             {
                 SortedWordlist = SortByScore(SortedWordlist);
-                BestWords.Add(SortedWordlist[0].MakeActiveWord(_Rows+2,_Cols+2, Config.VerticalKeyWord));
+                BestWords.Add(SortedWordlist[0].MakeActiveWord(_Rows,_Cols, Config.VerticalKeyWord));
             }
             else
             {
