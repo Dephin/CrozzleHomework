@@ -1,0 +1,11 @@
+// File dependencies.
+// Configuraton file.
+CONFIGURATION_FILE="http://sit323.azurewebsites.net/Task2/Test1-Configuration.txt"
+
+// Word list file.
+WORDLIST_FILE="http://sit323.azurewebsites.net/Task2/Test1-Sequences.txt"
+
+// Crozzle Size.
+// The number of rows and columns.
+ROWS=6
+COLUMNS=10

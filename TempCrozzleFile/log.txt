@@ -1,0 +1,164 @@
+START PROCESSING FILE: TempCrozzle.txt
+error 1: code 4002: configuration filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test1-Configuration.txt) doesn't match filename in the configuration object (TempConfiguration.txt)
+error 2: code 4004: wordlist filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test1-Sequences.txt) doesn't match filename in the wordlist object (TempWordlist.txt)
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+error 1: code 4002: configuration filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test1-Configuration.txt) doesn't match filename in the configuration object (TempConfiguration.txt)
+error 2: code 4004: wordlist filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test1-Sequences.txt) doesn't match filename in the wordlist object (TempWordlist.txt)
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+error 1: code 4002: configuration filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test2-Configuration.txt) doesn't match filename in the configuration object (TempConfiguration.txt)
+error 2: code 4004: wordlist filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test2-Sequences.txt) doesn't match filename in the wordlist object (TempWordlist.txt)
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+error 1: code 4002: configuration filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test3-Configuration.txt) doesn't match filename in the configuration object (TempConfiguration.txt)
+error 2: code 4004: wordlist filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test3-Sequences.txt) doesn't match filename in the wordlist object (TempWordlist.txt)
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+error 1: code 4002: configuration filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test2-Configuration.txt) doesn't match filename in the configuration object (TempConfiguration.txt)
+error 2: code 4004: wordlist filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test2-Sequences.txt) doesn't match filename in the wordlist object (TempWordlist.txt)
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+error 1: code 4002: configuration filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test3-Configuration.txt) doesn't match filename in the configuration object (TempConfiguration.txt)
+error 2: code 4004: wordlist filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test3-Sequences.txt) doesn't match filename in the wordlist object (TempWordlist.txt)
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+error 1: code 4002: configuration filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test2-Configuration.txt) doesn't match filename in the configuration object (TempConfiguration.txt)
+error 2: code 4004: wordlist filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test2-Sequences.txt) doesn't match filename in the wordlist object (TempWordlist.txt)
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+error 1: code 4002: configuration filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test1-Configuration.txt) doesn't match filename in the configuration object (TempConfiguration.txt)
+error 2: code 4004: wordlist filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test1-Sequences.txt) doesn't match filename in the wordlist object (TempWordlist.txt)
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+error 1: code 4002: configuration filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test1-Configuration.txt) doesn't match filename in the configuration object (TempConfiguration.txt)
+error 2: code 4004: wordlist filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test1-Sequences.txt) doesn't match filename in the wordlist object (TempWordlist.txt)
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+error 1: code 4002: configuration filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test1-Configuration.txt) doesn't match filename in the configuration object (TempConfiguration.txt)
+error 2: code 4004: wordlist filename (..\..\..\TempCrozzleFile\http://sit323.azurewebsites.net/Task2/Test1-Sequences.txt) doesn't match filename in the wordlist object (TempWordlist.txt)
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
+START PROCESSING FILE: TempCrozzle.txt
+END PROCESSING FILE: TempCrozzle.txt
+
+START PROCESSING FILE: TempConfiguration.txt
+END PROCESSING FILE: TempConfiguration.txt
+
+START PROCESSING FILE: TempWordlist.txt
+END PROCESSING FILE: TempWordlist.txt
+
