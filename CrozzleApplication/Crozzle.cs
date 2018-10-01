@@ -412,7 +412,7 @@ namespace CrozzleApplication
             {
                 if (activeWord.Orientation.Equals(Config.VerticalKeyWord))
                 {
-                    String wordData = "ROW=" + activeWord.RowStart + "," + activeWord.String + "," + activeWord.ColStart;
+                    String wordData = "COLUMN=" + activeWord.RowStart + "," + activeWord.String + "," + activeWord.ColStart;
                     retList.Add(wordData);
                 }
 
@@ -422,7 +422,7 @@ namespace CrozzleApplication
             {
                 if (activeWord.Orientation.Equals(Config.HorizontalKeyWord))
                 {
-                    String wordData = "COLUMN=" + activeWord.RowStart + "," + activeWord.String + "," + activeWord.ColStart;
+                    String wordData = "ROW=" + activeWord.ColStart + "," + activeWord.String + "," + activeWord.RowStart;
                     retList.Add(wordData);
                 }
             }
