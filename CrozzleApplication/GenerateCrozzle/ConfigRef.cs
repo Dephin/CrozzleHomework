@@ -6,8 +6,8 @@ namespace CrozzleApplication.GenerateCrozzle
     {
         #region readonly
 
-        public static readonly string HorizontalKeyWord = "HORIZONTAL";
-        public static readonly string VerticalKeyWord = "VERTICAL";
+        public readonly string HorizontalKeyWord = "HORIZONTAL";
+        public readonly string VerticalKeyWord = "VERTICAL";
 
         #endregion
 

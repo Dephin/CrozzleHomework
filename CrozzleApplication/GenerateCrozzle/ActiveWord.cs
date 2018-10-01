@@ -46,7 +46,7 @@
         private int CalcRowEnd()
         {
             int result = RowStart;
-            if (Orientation == ConfigRef.VerticalKeyWord)
+            if (Orientation == Config.VerticalKeyWord)
                 result += Length - 1;
             return result;
         }
@@ -54,7 +54,7 @@
         private int CalcColEnd()
         {
             int result = ColStart;
-            if (Orientation == ConfigRef.HorizontalKeyWord)
+            if (Orientation == Config.HorizontalKeyWord)
                 result += Length - 1;
             return result;
         }
