@@ -17,6 +17,7 @@ namespace CrozzleApplication
 		#region properties - errors
 		public static List<String> Errors { get; set; }
 		private List<String> CrozzleGridErrors { get; set; }
+		private static int TotalScore { get; set; }
 
 		public String FileErrorsTXT
 		{
@@ -227,8 +228,9 @@ namespace CrozzleApplication
 
 			if (wordData.Count == 0)
 			{
-				wordData = CreateCrozzelByGreedyAlgorithm(aCrozzle.Rows, aCrozzle.Columns, wordList.List, aConfiguration.IntersectingPointsPerLetter, aConfiguration.NonIntersectingPointsPerLetter);
-			}
+				int totalScore = 0;
+				wordData = CreateCrozzelByGreedyAlgorithm(aCrozzle.Rows, aCrozzle.Columns, wordList.List, aConfiguration.IntersectingPointsPerLetter, aConfiguration.NonIntersectingPointsPerLetter, ref totalScore);
+				TotalScore = totalScore;			}
 
 
 			// Get potential word data list.
@@ -373,7 +375,7 @@ namespace CrozzleApplication
 		#endregion
 
 		#region greedy algorithm
-		public static List<String> CreateCrozzelByGreedyAlgorithm(int rows, int cols, List<String> wordList, int[] intersectingPoint, int[] nonIntersectingPoint)
+		public static List<String> CreateCrozzelByGreedyAlgorithm(int rows, int cols, List<String> wordList, int[] intersectingPoint, int[] nonIntersectingPoint, ref int totalScore)
 		{
 			ConfigRef Config = new ConfigRef();
 			Config.NonIntersectingLetterPoints = nonIntersectingPoint;
@@ -426,6 +428,7 @@ namespace CrozzleApplication
 				{
 					wordData = "ROW=" + activeWord.RowStart + "," + activeWord.String + "," + activeWord.ColStart;
 				}
+				totalScore += activeWord.ActiveScore;
 				retList.Add(wordData);
 			}
 
@@ -580,12 +583,15 @@ namespace CrozzleApplication
 				else
 					crozzleHTML += @"<p>Word list file is invalid.</p>";
 
-				if (ValidityChecked && FileValid && Configuration != null && Configuration.Valid && WordList != null && WordList.Valid)
-					crozzleHTML += @"<p>Score = " + Score() + @"</p>";
-				else
-					crozzleHTML += @"<p></p>";
+				// if (ValidityChecked && FileValid && Configuration != null && Configuration.Valid && WordList != null && WordList.Valid)
+				//	crozzleHTML += @"<p>Score = " + Score() + @"</p>";
+				// else
+				//	crozzleHTML += @"<p></p>";
 
-				crozzleHTML += @"</body></html>";
+				if(null != TotalScore)
+					crozzleHTML += @"<p>Score = " + TotalScore + @"</p>";
+				else
+					crozzleHTML += @"</body></html>";
 			}
 
 			return (crozzleHTML);
