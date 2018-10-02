@@ -408,26 +408,22 @@ namespace CrozzleApplication
 
             List<String> retList = new List<String>();
 
-            foreach (ActiveWord activeWord in ActiveWordList)
-            {
-                if (activeWord.Orientation.Equals(Config.VerticalKeyWord))
-                {
-                    String wordData = "COLUMN=" + activeWord.ColStart + "," + activeWord.String + "," + activeWord.RowStart;
-                    retList.Add(wordData);
-                }
+			foreach (ActiveWord activeWord in ActiveWordList)
+			{
+				String wordData = null;
+				if (activeWord.Orientation.Equals(Config.VerticalKeyWord))
+				{
+					wordData = "COLUMN=" + (activeWord.ColStart - 1) + "," + activeWord.String + "," + (activeWord.RowStart - 1);
 
-            }
+				}
+				else if (activeWord.Orientation.Equals(Config.HorizontalKeyWord))
+				{
+					wordData = "ROW=" + (activeWord.RowStart - 1) + "," + activeWord.String + "," + (activeWord.ColStart - 1);
+				}
+				retList.Add(wordData);
+			}
 
-            foreach (ActiveWord activeWord in ActiveWordList)
-            {
-                if (activeWord.Orientation.Equals(Config.HorizontalKeyWord))
-                {
-                    String wordData = "ROW=" + activeWord.RowStart + "," + activeWord.String + "," + activeWord.ColStart;
-                    retList.Add(wordData);
-                }
-            }
-
-            return retList;
+			return retList;
         }
 
 

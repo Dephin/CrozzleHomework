@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CrozzleApplication.GenerateCrozzle
+namespace Crozzle2.CrozzleElements
 {
     public class ConfigRef
     {
@@ -15,12 +19,12 @@ namespace CrozzleApplication.GenerateCrozzle
         private const int _MaxNumberOfWords = 1000;
         private const string _HorizontalKeyWord = "HORIZONTAL";
         private const string _VerticalKeyWord = "VERTICAL";
-
         private const int _MinIntersectingWords = 1;
-        private const int _MaxIntersectingWords = 100;
-        private const int _MinWordSpacing = 0;
+        private const int _MaxIntersectingWords = 2;
+        private const int _MinHorizontalSpacing = 1;
+        private const int _MinWordSpacing = 1; 
 
-        private List<char> _LetterIndex = new List<char>() { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+		private List<char> _LetterIndex = new List<char>() { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 
         #endregion
 
@@ -35,7 +39,10 @@ namespace CrozzleApplication.GenerateCrozzle
         public int MinNumberOfVerticalWords { get { return _MinNumberOfVerticalWords; } }
         public int MinNumberOfWords { get { return _MinNumberOfWords; } }
         public int MaxNumberOfWords { get { return _MaxNumberOfWords; } }
-
+        
+        public int MinIntersectingWords { get { return _MinIntersectingWords; } }
+        public int MaxIntersectingWords { get { return _MaxIntersectingWords; } }
+        public int MinWordSpacing { get { return _MinWordSpacing; } }
 
         // Configuration File Dependent
         private static int _GroupsPerCrozzleLimit;
@@ -73,9 +80,6 @@ namespace CrozzleApplication.GenerateCrozzle
         {
             _IntersectingLetterPoints[_LetterIndex.IndexOf(letter)] = points;
         }
-
-
-
 
         #endregion
     }
