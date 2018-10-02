@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Crozzle2.CrozzleElements
+namespace GenerateCrozzle.CrozzleElements
 {
     /// <summary>
     /// Represents a word positioned on a Crozzle board.
