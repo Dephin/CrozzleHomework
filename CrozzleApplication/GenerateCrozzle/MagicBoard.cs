@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace GenerateCrozzle.CrozzleElements
+namespace CrozzleApplication.GenerateCrozzle
 {
     /// <summary>
     /// A crozzle board with a dynamic Grid. Allows word groups to shift arount to best suit the board.

@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Linq;
 using System.Timers;
-using GenerateCrozzle.CrozzleElements;
+using CrozzleApplication.GenerateCrozzle;
 
 namespace CrozzleApplication
 {
@@ -227,7 +227,7 @@ namespace CrozzleApplication
 
 			if (wordData.Count == 0)
 			{
-				wordData = CreateCrozzelByGreedyAlgorithm(aCrozzle, aConfiguration, wordList);
+				wordData = CreateCrozzelByGreedyAlgorithm(aCrozzle.Rows, aCrozzle.Columns, wordList.List, aConfiguration.IntersectingPointsPerLetter, aConfiguration.NonIntersectingPointsPerLetter);
 			}
 
 
@@ -373,24 +373,25 @@ namespace CrozzleApplication
 		#endregion
 
 		#region greedy algorithm
-		private static List<String> CreateCrozzelByGreedyAlgorithm(Crozzle aCrozzle, Configuration aConfiguration, WordList WordStrList)
+		public static List<String> CreateCrozzelByGreedyAlgorithm(int rows, int cols, List<String> wordList, int[] intersectingPoint, int[] nonIntersectingPoint)
 		{
 			ConfigRef Config = new ConfigRef();
-			Config.NonIntersectingLetterPoints = aConfiguration.NonIntersectingPointsPerLetter;
-			Config.IntersectingLetterPoints = aConfiguration.IntersectingPointsPerLetter;
+			Config.NonIntersectingLetterPoints = nonIntersectingPoint;
+			Config.IntersectingLetterPoints = intersectingPoint;
 
 			List<Word> Wordlist = new List<Word>();
-			foreach (String wordStr in WordStrList.List)
+			foreach (String wordStr in wordList)
 				Wordlist.Add(new Word(wordStr));
 
 			List<Word> Words = new List<Word>();
 			foreach (Word word in Wordlist)
 				Words.Add(new Word(word.String));
 
-			MagicBoard Grid = new MagicBoard(aCrozzle.Columns, aCrozzle.Rows);
+			MagicBoard Grid = new MagicBoard(cols, rows);
 	
 			bool status = false;
 			Timer timer = new Timer(400000);
+			timer.Start();
 			List<ActiveWord> BestWords;
 			while (timer.Enabled && status == false)
 			{

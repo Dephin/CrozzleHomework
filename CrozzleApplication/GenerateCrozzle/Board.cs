@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GenerateCrozzle.CrozzleElements
+namespace CrozzleApplication.GenerateCrozzle
 {
 	/// <summary>
 	/// A crozzle board grid.
