@@ -227,7 +227,7 @@ namespace CrozzleApplication
 
             if (wordData.Count == 0)
             {
-                wordData = CreateCrozzelByGreedyAlgorithm(aConfiguration, wordList);
+                wordData = CreateCrozzelByGreedyAlgorithm(aCrozzle, aConfiguration, wordList);
             }
 
 
@@ -373,7 +373,7 @@ namespace CrozzleApplication
         #endregion
 
         #region greedy algorithm
-        private static List<String> CreateCrozzelByGreedyAlgorithm(Configuration aConfiguration, WordList WordStrList)
+        private static List<String> CreateCrozzelByGreedyAlgorithm(Crozzle aCrozzle, Configuration aConfiguration, WordList WordStrList)
         {
             ConfigRef Config = new ConfigRef();
             Config.NonIntersectingLetterPoints = aConfiguration.NonIntersectingPointsPerLetter;
@@ -388,7 +388,7 @@ namespace CrozzleApplication
             foreach (Word word in Wordlist)
                 Words.Add(new Word(word.String));
 
-            MagicBoard Grid = new MagicBoard(aConfiguration.MaximumNumberOfRows, aConfiguration.MaximumNumberOfColumns);
+            MagicBoard Grid = new MagicBoard(aCrozzle.Rows, aCrozzle.Columns);
 
             List<ActiveWord> BestWords;
             while ((BestWords = Grid.GetBestWord(Words)).Count > 0)
